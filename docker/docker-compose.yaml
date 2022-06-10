@@ -8,6 +8,6 @@ services:
     environment:
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: admin
-      POSTGRES_MULTIPLE_DATABASES: fund-my-interest
+      POSTGRES_MULTIPLE_DATABASES: fmi
     ports:
       - "5432:5432"
