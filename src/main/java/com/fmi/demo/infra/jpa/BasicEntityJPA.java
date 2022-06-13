@@ -1,7 +1,6 @@
 package com.fmi.demo.infra.jpa;
 
 import org.hibernate.annotations.GenericGenerator;
-import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
@@ -16,7 +15,7 @@ public abstract class BasicEntityJPA {
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name="uuid", strategy = "uuid2")
     @Column(name= "id" , unique = true , length = 36)
-    private String id;
+    protected String id;
 
     public String getId() {
         return id;
