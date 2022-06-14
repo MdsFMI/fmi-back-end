@@ -67,6 +67,6 @@ public class CampaignsRepositoryImpl implements CampaignsRepository {
 
     @Override
     public List<Campaign> getAll() {
-     return  campaignJPARepository.findAll().stream().map(campaingJPAMapper::toDomain).toList();
+     return  campaignJPARepository.findAll().stream().map(x->campaingJPAMapper.toDomain(x)).toList();
     }
 }
