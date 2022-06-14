@@ -34,7 +34,7 @@ public class DonationsRepositoryImpl implements DonationsRepository {
 
     @Override
     public void delete(String id){
-        donationJPARepository.delete(donationJPARepository.getById(id));
+        donationJPARepository.deleteById(id);
     }
 
     @Override

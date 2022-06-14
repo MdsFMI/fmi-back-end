@@ -50,7 +50,7 @@ public class DonationIcommandImpl implements ICommand<Donation>{
     public void fieldVerification(Donation body){
 
         if(ObjectUtils.isEmpty(body.getAmmount())
-                || !StringUtils.hasText(body.getMessage())){
+                || !StringUtils.hasText(body.getMessage()) || !StringUtils.hasText(body.getCampaign().getId())){
             throw new CustomErrorHandler(ExceptionEnum.EMPTY_FIELD);
         }
     }

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
+import java.net.URISyntaxException;
 
 @RestController
 @RequestMapping(value = "/api/v1/donation", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -24,7 +25,7 @@ public class DonationsResource {
     private IQuerry<Donation> donationIQuerry;
 
     @PostMapping("")
-    public ResponseEntity<Donation> createDonation(@RequestBody Donation donation) throws Exception {
+    public ResponseEntity<Donation> createDonation(@RequestBody Donation donation) throws URISyntaxException {
 
         String id = donationICommand.save(donation);
 
@@ -50,7 +51,7 @@ public class DonationsResource {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteDonation(@PathVariable("id") String id){
+    public ResponseEntity<Void> deleteDonation(@PathVariable("id") String id){
         donationICommand.delete(id);
         return ResponseEntity.ok().build();
     }
