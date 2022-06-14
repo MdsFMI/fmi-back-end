@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.fmi.demo.DemoApplicationTests
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.031 s - in com.fmi.demo.DemoApplicationTests
