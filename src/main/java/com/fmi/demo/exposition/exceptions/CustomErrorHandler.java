@@ -1,8 +1,15 @@
 package com.fmi.demo.exposition.exceptions;
 
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+
+@RequiredArgsConstructor
+@Getter
+@Setter
 public class CustomErrorHandler extends RuntimeException{
 
-    public CustomErrorHandler(ExceptionEnum exceptionEnum) {
-        super(exceptionEnum.getError_message(), new Throwable(exceptionEnum.getError_key()));
-    }
+    private static final long serialVersionUID = 1234567L;
+
+    private final ErrorDispatcher errorDispatcher;
 }
