@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "/api/v1/campaign", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -56,4 +57,12 @@ public class CampaignsResource{
         campaignICommand.delete(id);
         return ResponseEntity.ok().build();
     }
+
+
+    @GetMapping("/all")
+    public ResponseEntity<List<Campaign>> getAllCampaign(){
+        return ResponseEntity.ok()
+                .body(campaignIQuerry.getAll());
+    }
+
 }

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
+import java.util.List;
 import java.util.Optional;
 
 
@@ -62,5 +63,10 @@ public class CampaignsRepositoryImpl implements CampaignsRepository {
         else{
             return true;
         }
+    }
+
+    @Override
+    public List<Campaign> getAll() {
+     return  campaignJPARepository.findAll().stream().map(x->campaingJPAMapper.toDomain(x)).toList();
     }
 }

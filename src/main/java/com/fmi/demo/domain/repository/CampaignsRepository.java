@@ -2,6 +2,7 @@ package com.fmi.demo.domain.repository;
 
 import com.fmi.demo.domain.model.Campaign;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface CampaignsRepository {
@@ -13,4 +14,6 @@ public interface CampaignsRepository {
     Optional<Campaign> getById(String id);
 
     boolean existsById(String id);
+
+    List<Campaign> getAll();
 }
