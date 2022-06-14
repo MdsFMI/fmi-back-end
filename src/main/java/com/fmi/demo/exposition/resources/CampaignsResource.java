@@ -2,11 +2,9 @@ package com.fmi.demo.exposition.resources;
 
 import com.fmi.demo.domain.model.Campaign;
 import com.fmi.demo.exposition.ICommand.ICommand;
-import com.fmi.demo.exposition.IQuerry.CampaignIQuerryImpl;
 
 
 import com.fmi.demo.exposition.IQuerry.IQuerry;
-import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -15,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.List;
 
 @RestController
@@ -29,7 +28,7 @@ public class CampaignsResource{
     private IQuerry<Campaign> campaignIQuerry;
 
     @PostMapping("")
-    public ResponseEntity<Campaign> createCampaign(@RequestBody Campaign campaign) throws Exception{
+    public ResponseEntity<Campaign> createCampaign(@RequestBody Campaign campaign) throws URISyntaxException {
 
         String id = campaignICommand.save(campaign);
 
@@ -55,7 +54,7 @@ public class CampaignsResource{
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteCampaign(@PathVariable("id") String id){
+    public ResponseEntity<Void> deleteCampaign(@PathVariable("id") String id){
         campaignICommand.delete(id);
         return ResponseEntity.ok().build();
     }

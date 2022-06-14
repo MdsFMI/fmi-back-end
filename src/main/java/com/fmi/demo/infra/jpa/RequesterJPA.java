@@ -28,4 +28,5 @@ public class RequesterJPA extends BasicEntityJPA{
     @OneToMany(orphanRemoval = true, cascade = CascadeType.ALL , mappedBy ="requester")
     private Set<CampaignJPA> campaigns = new HashSet<>();
 
+
 }

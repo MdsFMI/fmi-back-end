@@ -7,6 +7,7 @@ import org.mapstruct.Mapper;
 @Mapper(
         componentModel = "spring",
         uses = {
+                CampaingJPAMapper.class
         }
 )
 public interface DonationJPAMapper extends GenericMapper<Donation, DonationJPA> {

@@ -35,7 +35,7 @@ public class CampaignsRepositoryImpl implements CampaignsRepository {
 
     @Override
     public void delete(String id) {
-        campaignJPARepository.delete(campaignJPARepository.getById(id));
+        campaignJPARepository.deleteById(id);
     }
 
     @Override
@@ -50,7 +50,6 @@ public class CampaignsRepositoryImpl implements CampaignsRepository {
         else{
             return Optional.of(campaingJPAMapper.toDomain(campaignJPAOptional.get()));
         }
-        //return Optional.of(campaingJPAMapper.toDomain(campaignJPARepository.getById(id)));
     }
 
     @Override
@@ -61,7 +60,6 @@ public class CampaignsRepositoryImpl implements CampaignsRepository {
         if(campaignJPAOptional.isEmpty()){
             return false;
         }
-
         else{
             return true;
         }
@@ -69,6 +67,6 @@ public class CampaignsRepositoryImpl implements CampaignsRepository {
 
     @Override
     public List<Campaign> getAll() {
-     return  campaignJPARepository.findAll().stream().map(x->campaingJPAMapper.toDomain(x)).toList();
+     return  campaignJPARepository.findAll().stream().map(campaingJPAMapper::toDomain).toList();
     }
 }

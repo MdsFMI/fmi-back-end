@@ -30,7 +30,7 @@ public class CampaignJPA extends BasicEntityJPA{
     @JoinColumn(name ="requester_id")
     private RequesterJPA requester;
 
-    @OneToMany(mappedBy = "campaign" , cascade = CascadeType.ALL , orphanRemoval = true)
+    @OneToMany(mappedBy = "campaign")
     private Set<DonationJPA> donations =new HashSet<>();
 
 

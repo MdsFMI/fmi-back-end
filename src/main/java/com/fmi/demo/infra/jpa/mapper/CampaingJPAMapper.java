@@ -7,7 +7,6 @@ import org.mapstruct.Mapper;
 @Mapper(
         componentModel = "spring",
         uses={
-                DonationJPAMapper.class,
                 RequesterJPAMapper.class
         }
 )

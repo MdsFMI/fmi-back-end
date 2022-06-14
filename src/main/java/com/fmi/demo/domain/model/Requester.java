@@ -1,12 +1,8 @@
 package com.fmi.demo.domain.model;
 
-import com.fmi.demo.infra.jpa.BasicEntityJPA;
 import lombok.*;
 
-import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.HashSet;
-import java.util.Set;
 
 @AllArgsConstructor
 @NoArgsConstructor

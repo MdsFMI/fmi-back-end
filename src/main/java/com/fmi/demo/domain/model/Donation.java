@@ -1,13 +1,9 @@
 package com.fmi.demo.domain.model;
 
 
-import com.fmi.demo.infra.jpa.BasicEntityJPA;
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+
 import java.time.LocalDate;
 
 @AllArgsConstructor
@@ -22,4 +18,5 @@ public class Donation{
     private Double ammount;
     private String message;
     private boolean isAnnonymous;
+    private Campaign campaign;
 }

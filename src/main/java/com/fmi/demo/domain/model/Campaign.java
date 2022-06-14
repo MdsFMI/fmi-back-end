@@ -18,7 +18,6 @@ public class Campaign {
     private Double campaignGoal;
     private Double currentAmmount;
     private Requester requester;
-    private Set<Donation> donations =new HashSet<>();
 
 
 }

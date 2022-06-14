@@ -1,7 +1,7 @@
 package com.fmi.demo.exposition.IQuerry;
 
-import com.fmi.demo.domain.model.Campaign;
-import com.fmi.demo.domain.repository.CampaignsRepository;
+import com.fmi.demo.domain.model.Donation;
+import com.fmi.demo.domain.repository.DonationsRepository;
 import com.fmi.demo.exposition.exceptions.CustomErrorHandler;
 import com.fmi.demo.exposition.exceptions.ExceptionEnum;
 
@@ -16,28 +16,28 @@ import java.util.Optional;
 @Service
 @Transactional
 @RequiredArgsConstructor
-public class CampaignIQuerryImpl implements IQuerry<Campaign> {
+public class DonationIQuerryImpl implements IQuerry<Donation>{
 
-    private final CampaignsRepository campaignsRepository;
+    private final DonationsRepository donationsRepository;
 
     @Override
-    public Campaign getById(String id){
+    public Donation getById(String id){
 
         if(!StringUtils.hasText(id)){
             throw new CustomErrorHandler(ExceptionEnum.OBJECT_NOT_FOUND);
         }
 
-        Optional<Campaign> campaignOptional = campaignsRepository.getById(id);
-        if(campaignOptional.isEmpty()){
+        Optional<Donation> donationOptional = donationsRepository.getById(id);
+        if(donationOptional.isEmpty()){
             throw new CustomErrorHandler(ExceptionEnum.OBJECT_NOT_FOUND);
         }
         else {
-            return campaignOptional.get();
+            return donationOptional.get();
         }
     }
 
     @Override
-    public List<Campaign> getAll() {
-        return campaignsRepository.getAll();
+    public List<Donation> getAll() {
+        return null;
     }
 }
