@@ -49,7 +49,6 @@ public class CampaignsRepositoryImpl implements CampaignsRepository {
         else{
             return Optional.of(campaingJPAMapper.toDomain(campaignJPAOptional.get()));
         }
-        //return Optional.of(campaingJPAMapper.toDomain(campaignJPARepository.getById(id)));
     }
 
     @Override
@@ -60,7 +59,6 @@ public class CampaignsRepositoryImpl implements CampaignsRepository {
         if(campaignJPAOptional.isEmpty()){
             return false;
         }
-
         else{
             return true;
         }

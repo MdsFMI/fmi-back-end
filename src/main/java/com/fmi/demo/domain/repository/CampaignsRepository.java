@@ -1,7 +1,6 @@
 package com.fmi.demo.domain.repository;
 
 import com.fmi.demo.domain.model.Campaign;
-import com.fmi.demo.exposition.exceptions.CustomErrorHandler;
 
 import java.util.Optional;
 

@@ -1,9 +1,7 @@
 package com.fmi.demo.exposition.resources;
 
-import com.fmi.demo.domain.model.Campaign;
+import com.fmi.demo.domain.model.Donation;
 import com.fmi.demo.exposition.ICommand.ICommand;
-
-
 import com.fmi.demo.exposition.IQuerry.IQuerry;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,45 +13,45 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import java.net.URI;
 
 @RestController
-@RequestMapping(value = "/api/v1/campaign", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value = "/api/v1/donation", produces = MediaType.APPLICATION_JSON_VALUE)
 @Slf4j
-public class CampaignsResource{
+public class DonationsResource {
 
     @Autowired
-    private ICommand<Campaign> campaignICommand;
+    private ICommand<Donation> donationICommand;
 
     @Autowired
-    private IQuerry<Campaign> campaignIQuerry;
+    private IQuerry<Donation> donationIQuerry;
 
     @PostMapping("")
-    public ResponseEntity<Campaign> createCampaign(@RequestBody Campaign campaign) throws Exception{
+    public ResponseEntity<Donation> createDonation(@RequestBody Donation donation) throws Exception {
 
-        String id = campaignICommand.save(campaign);
+        String id = donationICommand.save(donation);
 
         final var uri = ServletUriComponentsBuilder
                 .fromCurrentRequest()
                 .path("/" + id).toUriString();
 
         return ResponseEntity.created(new URI(uri))
-                .body(campaignIQuerry.getById(id));
+                .body(donationIQuerry.getById(id));
     }
 
     @PutMapping(path = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Campaign> updateCampaign(@PathVariable("id") String id, @RequestBody Campaign campaign) {
-        String objectId = campaignICommand.update(campaign, id);
+    public ResponseEntity<Donation> updateDonation(@PathVariable("id") String id, @RequestBody Donation donation) {
+        String objectId = donationICommand.update(donation, id);
         return ResponseEntity.ok()
-                .body(campaignIQuerry.getById(objectId));
+                .body(donationIQuerry.getById(objectId));
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Campaign> getCampaignById(@PathVariable("id") String id){
+    public ResponseEntity<Donation> getDonationById(@PathVariable("id") String id){
         return ResponseEntity.ok()
-                .body(campaignIQuerry.getById(id));
+                .body(donationIQuerry.getById(id));
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteCampaign(@PathVariable("id") String id){
-        campaignICommand.delete(id);
+    public ResponseEntity<?> deleteDonation(@PathVariable("id") String id){
+        donationICommand.delete(id);
         return ResponseEntity.ok().build();
     }
 }
